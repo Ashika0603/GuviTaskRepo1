@@ -1,7 +1,7 @@
-
 #importing random package
 import random
-#Guess the number program
+
+#GUESS THE NUMBER
 #variable declaration
 lowest_no = 1
 highest_no = 100
@@ -45,3 +45,31 @@ while flag:
         print(f"Please enter a number between {lowest_no} and {highest_no} range")
 
 
+
+#WORD SCRAMBLE
+#creating a words list
+words = ['python','javascript','java','automation','pytest','guvi','selenium']
+#variable declaration
+attempts = 0
+flag_value = True
+#selected_words variable is used to store the random value selected from the words list
+selected_words = random.choice(words)
+#selected word are stored in character list
+character = list(selected_words)
+#using random.shuffle letters are getting shuffled to create scrambled letters
+random.shuffle(character)
+#scrambled_word variable will store scrambled word
+scrambled_word = "".join(character)
+print("Scrambled word:",scrambled_word)
+while flag_value:
+    # getting player input
+    guess = input("Enter the correct word: ")
+    #checking whether the selected value and scrambled value is getting matched
+    if guess.lower() == selected_words.lower():
+        attempts += 1
+        print("Congratulations! You have guessed the word in " + str(attempts) + " attempts.")
+        flag_value = False
+    else:
+        #if player guess is wrong this part will get executed
+        attempts += 1
+        print("Incorrect. Try again.")
